@@ -2,6 +2,7 @@
   "name": "carp-travel",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ivanpanteliuk.github.io/carp-travel/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
