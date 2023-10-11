@@ -1,5 +1,6 @@
 import AppBar from "@/components/AppBar";
 import "../styles/globals.css";
+import Head from "next/head";
 
 export const metadata = {
   title: "Carpathians Travel",
@@ -12,6 +13,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="icon" href="@/public/favicon.ico" />
+      </Head>
       <body className="body">
         <header className="absolute left-1/2 -translate-x-1/2 top-0 w-full z-50">
           <AppBar />
