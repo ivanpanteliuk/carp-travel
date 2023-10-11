@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="body">
-        <header className="absolute left-1/2 -translate-x-1/2 top-0 w-full ">
+        <header className="absolute left-1/2 -translate-x-1/2 top-0 w-full z-50">
           <AppBar />
         </header>
         <main>{children}</main>

@@ -2,7 +2,7 @@
 import { Controller, useForm } from "react-hook-form";
 import InputMask from "react-input-mask";
 
-export default function ChooseUs() {
+export default function Career() {
   const {
     register,
     handleSubmit,
@@ -14,9 +14,9 @@ export default function ChooseUs() {
   const agree = watch("agree");
 
   return (
-    <section id="contacts" className="choose-us">
+    <section id="career" className="career">
       <div className="container sm:py-[55px]">
-        <h2 className="hidden">Contact us</h2>
+        <h2 className="hidden">Career</h2>
         <div className="sm:w-[180px] font-extralight leading-[1.428] tracking-normal text-left ml-[100px] mb-[24px]">
           <p>Don&apos;t miss your opportunity!</p>
           <p>Fill out the form right now and join our team!</p>
@@ -104,7 +104,7 @@ export default function ChooseUs() {
               cols="30"
               rows="10"
               {...register("message")}
-              className="mb-[18px]"
+              className="input mb-[18px]"
             ></textarea>
           </fieldset>
           <label className="label leading-[1.83]">
@@ -115,7 +115,7 @@ export default function ChooseUs() {
             />
             I confirm my consent to the processing of personal data.
           </label>
-          <input type="submit" value={"Send"} />
+          <input type="submit" value={"Send"} className="submit-button" />
         </form>
       </div>
     </section>
