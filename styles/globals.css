@@ -17,6 +17,19 @@
   --contacts-bg-color: rgba(2, 15, 8, 0.5);
 }
 
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
 .body {
   color: var(--primary-text-color);
   font-family: Inter;
@@ -81,7 +94,7 @@
     url("/assets/images/about-bg-m.jpg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: auto;
+  background-size: cover;
 }
 
 .career {
@@ -91,10 +104,10 @@
       rgba(2, 15, 8, 0.75) 0%,
       rgba(2, 15, 8, 0.75) 100%
     ),
-    url("/assets/images/choose-us-bg-m.jpg");
+    url("/assets/images/career-bg-m.jpg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: auto;
+  background-size: cover;
 }
 
 .contacts {
@@ -108,6 +121,49 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: auto;
+}
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-container {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid white;
+  display: inline-block;
+}
+
+.checkbox-container::before {
+  content: "";
+  position: absolute;
+  top: 14%;
+  left: 15%;
+  background-color: #fff;
+  opacity: 0.1;
+  width: 16px;
+  height: 16px;
+}
+
+.checkbox-container::after {
+  content: "";
+  position: absolute;
+  top: 14%;
+  left: 15%;
+  background-color: #fff;
+  width: 16px;
+  height: 16px;
+  transform: scale(0);
+  transition: 0.1s ease;
+}
+
+.checkbox:checked + .checkbox-container::after {
+  transform: scale(1);
 }
 
 /* Tailwind Styles */

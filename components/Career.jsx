@@ -16,7 +16,7 @@ export default function Career() {
   return (
     <section id="career" className="career">
       <div className="container sm:py-[55px]">
-        <h2 className="hidden">Career</h2>
+        <h2 className="visually-hidden">Career</h2>
         <div className="sm:w-[180px] font-extralight leading-[1.428] tracking-normal text-left ml-[100px] mb-[24px]">
           <p>Don&apos;t miss your opportunity!</p>
           <p>Fill out the form right now and join our team!</p>
@@ -107,14 +107,24 @@ export default function Career() {
               className="input mb-[18px]"
             ></textarea>
           </fieldset>
-          <label className="label leading-[1.83]">
+          <label className=" flex content-baseline gap-[8px] tracking-normal font-extralight text-[12px] text-justify checkbox-label leading-[1.83]  ">
             <Controller
               name="agree"
               control={control}
-              render={({ field }) => <input type="checkbox" {...field} />}
+              render={({ field }) => (
+                <>
+                  <input className="checkbox" type="checkbox" {...field} />
+                  <div
+                    role="checkbox"
+                    className="checkbox-container w-[24px] h-[24px] shrink-0"
+                    aria-checked={agree}
+                  ></div>
+                </>
+              )}
             />
             I confirm my consent to the processing of personal data.
           </label>
+
           <input type="submit" value={"Send"} className="submit-button" />
         </form>
       </div>

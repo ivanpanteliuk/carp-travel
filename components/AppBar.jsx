@@ -2,6 +2,7 @@
 import Link from "next/link";
 import logo from "@/public/assets/icons/logo.svg";
 import { useState } from "react";
+import { Link as ScrollLink } from "react-scroll";
 
 function AppBar() {
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
@@ -48,29 +49,64 @@ function AppBar() {
               </button>
               <ul className=" flex flex-col gap-[48px] items-center justify-center tracking-tighter">
                 <li>
-                  <a href="#" onClick={toggleMobileMenu}>
+                  <ScrollLink
+                    to="about"
+                    spy={true}
+                    smooth={true}
+                    offset={50}
+                    duration={700}
+                    onClick={toggleMobileMenu}
+                  >
                     About
-                  </a>
+                  </ScrollLink>
                 </li>
                 <li>
-                  <a href="#" onClick={toggleMobileMenu}>
+                  <ScrollLink
+                    to="#"
+                    spy={true}
+                    smooth={true}
+                    offset={50}
+                    duration={700}
+                    onClick={toggleMobileMenu}
+                  >
                     Services
-                  </a>
+                  </ScrollLink>
                 </li>
                 <li>
-                  <a href="#" onClick={toggleMobileMenu}>
+                  <ScrollLink
+                    to="career"
+                    spy={true}
+                    smooth={true}
+                    offset={50}
+                    duration={700}
+                    onClick={toggleMobileMenu}
+                  >
                     Career
-                  </a>
+                  </ScrollLink>
                 </li>
                 <li>
-                  <a href="#" onClick={toggleMobileMenu}>
+                  <ScrollLink
+                    to="gallery"
+                    spy={true}
+                    smooth={true}
+                    offset={50}
+                    duration={700}
+                    onClick={toggleMobileMenu}
+                  >
                     Gallery
-                  </a>
+                  </ScrollLink>
                 </li>
                 <li>
-                  <a href="#" onClick={toggleMobileMenu}>
+                  <ScrollLink
+                    to="contacts"
+                    spy={true}
+                    smooth={true}
+                    offset={50}
+                    duration={700}
+                    onClick={toggleMobileMenu}
+                  >
                     Contacts
-                  </a>
+                  </ScrollLink>
                 </li>
               </ul>
             </div>
@@ -79,19 +115,59 @@ function AppBar() {
 
         <ul className="flex gap-7 sm:hidden">
           <li>
-            <a href="#">About</a>
+            <ScrollLink
+              to="about"
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={700}
+            >
+              About
+            </ScrollLink>
           </li>
           <li>
-            <a href="#">Services</a>
+            <ScrollLink
+              to="services"
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={700}
+            >
+              Services
+            </ScrollLink>
           </li>
           <li>
-            <a href="#">Career</a>
+            <ScrollLink
+              to="career"
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={700}
+            >
+              Career
+            </ScrollLink>
           </li>
           <li>
-            <a href="#">Gallery</a>
+            <ScrollLink
+              to="gallery"
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={700}
+            >
+              Gallery
+            </ScrollLink>
           </li>
           <li>
-            <a href="#">Contacts</a>
+            <ScrollLink
+              to="contacts"
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={700}
+            >
+              Contacts
+            </ScrollLink>
           </li>
         </ul>
       </nav>
