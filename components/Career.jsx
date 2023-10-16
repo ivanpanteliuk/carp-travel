@@ -1,6 +1,9 @@
 "use client";
 import { Controller, useForm } from "react-hook-form";
+import ValidationErrorMsg from "./ValidationErrorMsg";
+import { validationRules } from "@/helpers/validationRules ";
 import InputMask from "react-input-mask";
+import { useState } from "react";
 
 export default function Career() {
   const {
@@ -9,7 +12,10 @@ export default function Career() {
     formState: { errors },
     control,
     watch,
+    reset,
   } = useForm();
+
+  const [consent, setConsent] = useState(false);
 
   const agree = watch("agree");
 
@@ -23,74 +29,115 @@ export default function Career() {
         </div>
 
         <form
-          onSubmit={handleSubmit((data) => console.log(data))}
+          onSubmit={handleSubmit((data) => {
+            if (agree) {
+              console.log(data);
+              setConsent(false);
+              reset();
+            } else setConsent(true);
+          })}
           className="flex flex-col"
         >
           <fieldset className="flex flex-col">
             <legend className="hidden">Personal information</legend>
-            <label htmlFor="fullName" className="label">
+            <label
+              htmlFor="fullName"
+              className={`label ${errors.nameCareer ? "text-red-500" : ""}`}
+            >
               Full name
             </label>
             <input
               type="text"
               id="fullName"
               placeholder="John Smith"
-              name="name"
-              {...register("name", { required: true })}
-              className="input"
+              name="nameCareer"
+              aria-invalid={errors.nameCareer ? "true" : "false"}
+              {...register("nameCareer", validationRules.name)}
+              className={`input ${errors.nameCareer ? "text-red-500" : ""}`}
             />
-            {errors.name && <p>Name is required.</p>}
+            {errors.nameCareer && (
+              <ValidationErrorMsg errorMsg={errors.nameCareer.message} />
+            )}
 
-            <label htmlFor="email" className="label">
+            <label
+              htmlFor="email"
+              className={`label ${errors.emailCareer ? "text-red-500" : ""}`}
+            >
               E-mail
             </label>
             <input
               id="email"
-              name="email"
+              name="emailCareer"
               placeholder="johnsmith@email.com"
               type="email"
-              {...register("email", {
-                required: "Email is required.",
-                pattern: {
-                  value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
-                  message: "Invalid email format.",
-                },
-              })}
-              className="input"
+              aria-invalid={errors.emailCareer ? "true" : "false"}
+              {...register("emailCareer", validationRules.email)}
+              className={`input ${errors.emailCareer ? "text-red-500" : ""}`}
             />
-            {errors.email && <p>{errors.email.message}</p>}
+            {errors.emailCareer && (
+              <ValidationErrorMsg errorMsg={errors.emailCareer.message} />
+            )}
 
-            <label htmlFor="position" className="label">
+            <label
+              htmlFor="position"
+              className={`label ${errors.positionCareer ? "text-red-500" : ""}`}
+            >
               Position
             </label>
             <input
               id="position"
-              name="position"
+              name="positionCareer"
               type="text"
               placeholder="Movie maker"
-              {...register("position", { required: true })}
-              className="input"
+              aria-invalid={errors.positionCareer ? "true" : "false"}
+              {...register("positionCareer", validationRules.position)}
+              className={`input ${errors.positionCareer ? "text-red-500" : ""}`}
             />
-            {errors.position && <p>Position is required.</p>}
+            {errors.positionCareer && (
+              <ValidationErrorMsg errorMsg={errors.positionCareer.message} />
+            )}
 
-            <label htmlFor="phone" className="label">
+            {/* <label
+              htmlFor="phone"
+              className={`label ${errors.phoneCareer ? "text-red-500" : ""}`}
+            >
               Phone
             </label>
             <input
               type="tel"
-              name="phone"
+              name="phoneCareer"
               id="phone"
               placeholder="+ 38 (097) 12 34 567"
-              {...register("phone", {
-                required: "Phone is required.",
-                pattern: {
-                  value: /^\+38 \(\d{3}\) \d{2} \d{2} \d{3}$/,
-                  message: "Invalid phone format. Example: +38 (097) 12 34 567",
-                },
-              })}
-              className="input"
-            />
-            {errors.phone && <p>{errors.phone.message}</p>}
+              {...register("phoneCareer", validationRules.phone)}
+              className={`input ${errors.phoneCareer ? "text-red-500" : ""}`}
+              inputMode="numeric"
+            /> */}
+
+            <label
+              htmlFor="phone"
+              className={`label ${errors.phoneCareer ? "text-red-500" : ""}`}
+            >
+              Phone
+            </label>
+            <InputMask
+              alwaysShowMask={false}
+              mask="+38 (999) 99 99 999"
+              maskChar=" "
+              name="phoneCareer"
+              type="tel"
+              id="phone"
+              aria-invalid={errors.phoneCareer ? "true" : "false"}
+              placeholder="+ 38 (097) 12 34 567"
+              className={`input ${errors.phoneCareer ? "text-red-500" : ""}`}
+              inputMode="numeric"
+              {...register("phoneCareer", validationRules.phone)}
+            >
+              {(inputProps) => <input {...inputProps} />}
+            </InputMask>
+
+            {errors.phoneCareer && (
+              <ValidationErrorMsg errorMsg={errors.phoneCareer.message} />
+            )}
           </fieldset>
 
           <fieldset className="flex flex-col">
@@ -107,7 +154,11 @@ export default function Career() {
               className="input mb-[18px]"
             ></textarea>
           </fieldset>
-          <label className=" flex content-baseline gap-[8px] tracking-normal font-extralight text-[12px] text-justify checkbox-label leading-[1.83]  ">
+          <label
+            className={`${
+              !agree && consent ? "text-red-500" : ""
+            } flex content-baseline gap-[8px] tracking-normal font-extralight text-[12px] text-justify checkbox-label leading-[1.83] `}
+          >
             <Controller
               name="agree"
               control={control}

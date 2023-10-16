@@ -1,6 +1,7 @@
 "use client";
+import { validationRules } from "@/helpers/validationRules ";
 import { useForm } from "react-hook-form";
-import warningClose from "@/public/assets/icons/warning-close.svg";
+import ValidationErrorMsg from "./ValidationErrorMsg";
 
 export default function Contacts() {
   const {
@@ -69,27 +70,11 @@ export default function Contacts() {
               id="fullNameContacts"
               placeholder="John Smith"
               name="NameContacts"
-              {...register("NameContacts", {
-                required: "Name is required.",
-                pattern: {
-                  value: /^[A-Za-z\s]+$/,
-                  message: "Incorrect name",
-                },
-              })}
+              {...register("NameContacts", validationRules.name)}
               className={`input ${errors.NameContacts ? "text-red-500" : ""}`}
             />
             {errors.NameContacts && (
-              <div className="flex items-center justify-end">
-                <svg
-                  width={18}
-                  height={18}
-                  viewBox={warningClose.viewBox}
-                  className="mr-[3px]"
-                >
-                  <use xlinkHref={`#${warningClose.id}`} />
-                </svg>
-                <p className="warning-message">{errors.NameContacts.message}</p>
-              </div>
+              <ValidationErrorMsg errorMsg={errors.NameContacts.message} />
             )}
 
             <label
@@ -103,29 +88,11 @@ export default function Contacts() {
               name="emailContacts"
               placeholder="johnsmith@email.com"
               type="email"
-              {...register("emailContacts", {
-                required: "Email is required.",
-                pattern: {
-                  value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
-                  message: "Invalid email format.",
-                },
-              })}
+              {...register("emailContacts", validationRules.email)}
               className={`input ${errors.emailContacts ? "text-red-500" : ""}`}
             />
             {errors.emailContacts && (
-              <div className="flex items-center justify-end">
-                <svg
-                  width={18}
-                  height={18}
-                  viewBox={warningClose.viewBox}
-                  className="mr-[3px]"
-                >
-                  <use xlinkHref={`#${warningClose.id}`} />
-                </svg>
-                <p className="warning-message">
-                  {errors.emailContacts.message}
-                </p>
-              </div>
+              <ValidationErrorMsg errorMsg={errors.emailContacts.message} />
             )}
           </fieldset>
 
