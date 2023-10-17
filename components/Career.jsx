@@ -4,6 +4,7 @@ import ValidationErrorMsg from "./ValidationErrorMsg";
 import { validationRules } from "@/helpers/validationRules ";
 import InputMask from "react-input-mask";
 import { useState } from "react";
+import MaskedInput from "./MaskedInput";
 
 export default function Career() {
   const {
@@ -97,43 +98,18 @@ export default function Career() {
               <ValidationErrorMsg errorMsg={errors.positionCareer.message} />
             )}
 
-            {/* <label
-              htmlFor="phone"
-              className={`label ${errors.phoneCareer ? "text-red-500" : ""}`}
-            >
-              Phone
-            </label>
-            <input
-              type="tel"
-              name="phoneCareer"
-              id="phone"
-              placeholder="+ 38 (097) 12 34 567"
-              {...register("phoneCareer", validationRules.phone)}
-              className={`input ${errors.phoneCareer ? "text-red-500" : ""}`}
-              inputMode="numeric"
-            /> */}
-
             <label
               htmlFor="phone"
               className={`label ${errors.phoneCareer ? "text-red-500" : ""}`}
             >
               Phone
             </label>
-            <InputMask
-              alwaysShowMask={false}
-              mask="+38 (999) 99 99 999"
-              maskChar=" "
+            <MaskedInput
+              control={control}
               name="phoneCareer"
-              type="tel"
-              id="phone"
               aria-invalid={errors.phoneCareer ? "true" : "false"}
-              placeholder="+ 38 (097) 12 34 567"
               className={`input ${errors.phoneCareer ? "text-red-500" : ""}`}
-              inputMode="numeric"
-              {...register("phoneCareer", validationRules.phone)}
-            >
-              {(inputProps) => <input {...inputProps} />}
-            </InputMask>
+            />
 
             {errors.phoneCareer && (
               <ValidationErrorMsg errorMsg={errors.phoneCareer.message} />
