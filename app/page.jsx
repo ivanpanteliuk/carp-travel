@@ -1,8 +1,8 @@
-import About from "@/components/About";
-import Career from "@/components/Career";
-import Contacts from "@/components/Contacts";
-import Gallery from "@/components/Gallery";
-import Hero from "@/components/Hero";
+import About from "@/sections/About";
+import Career from "@/sections/Career";
+import Contacts from "@/sections/Contacts";
+import Gallery from "@/sections/Gallery";
+import Hero from "@/sections/Hero";
 
 export default function Home() {
   return (

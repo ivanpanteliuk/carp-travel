@@ -1,7 +1,7 @@
 "use client";
 import { validationRules } from "@/helpers/validationRules ";
 import { useForm } from "react-hook-form";
-import ValidationErrorMsg from "./ValidationErrorMsg";
+import ValidationErrorMsg from "../components/ValidationErrorMsg";
 
 export default function Contacts() {
   const {
@@ -111,7 +111,7 @@ export default function Contacts() {
             ></textarea>
           </fieldset>
 
-          <input type="submit" value={"Send"} className="submit-button" />
+          <input type="submit" value={"Send"} className="cursor-pointer" />
         </form>
       </div>
     </section>

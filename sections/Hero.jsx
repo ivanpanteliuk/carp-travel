@@ -1,4 +1,5 @@
-// import * as Scroll from "react-scroll";
+"use client";
+import { Link as ScrollLink } from "react-scroll";
 
 export default function Hero() {
   return (
@@ -23,12 +24,16 @@ export default function Hero() {
           Carpathians. Enjoy stunning views, exciting expeditions, and the best
           service!
         </p>
-        <a
-          href="#contacts"
-          className=" join-now-btn text-center block leading-[2.66] font-bold text-[18px] uppercase"
+        <ScrollLink
+          to="contacts"
+          spy={true}
+          smooth={true}
+          offset={50}
+          duration={700}
+          className=" join-now-btn text-center block leading-[2.66] font-bold text-[18px] uppercase cursor-pointer"
         >
           Join now
-        </a>
+        </ScrollLink>
       </div>
     </section>
   );

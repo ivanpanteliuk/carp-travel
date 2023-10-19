@@ -33,7 +33,7 @@ function AppBar() {
             <button
               type="button"
               onClick={toggleMobileMenu}
-              className="uppercase"
+              className="uppercase cursor-pointer"
             >
               Menu
             </button>

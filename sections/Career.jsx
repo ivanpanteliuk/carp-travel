@@ -1,10 +1,10 @@
 "use client";
 import { Controller, useForm } from "react-hook-form";
-import ValidationErrorMsg from "./ValidationErrorMsg";
+import ValidationErrorMsg from "../components/ValidationErrorMsg";
 import { validationRules } from "@/helpers/validationRules ";
 import InputMask from "react-input-mask";
 import { useState } from "react";
-import MaskedInput from "./MaskedInput";
+import MaskedInput from "../components/MaskedInput";
 
 export default function Career() {
   const {
@@ -152,7 +152,11 @@ export default function Career() {
             I confirm my consent to the processing of personal data.
           </label>
 
-          <input type="submit" value={"Send"} className="submit-button" />
+          <input
+            type="submit"
+            value={"Send"}
+            className="submit-button cursor-pointer"
+          />
         </form>
       </div>
     </section>

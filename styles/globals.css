@@ -15,6 +15,7 @@
   --primary-text-color: #fff;
   --choose-us-bg-color: #0a1813;
   --contacts-bg-color: rgba(2, 15, 8, 0.5);
+  --gallery-bg-color: #0a1813;
 }
 
 .visually-hidden {
@@ -50,12 +51,30 @@
 
 .hero-section {
   background-color: var(--hero-bg-color);
-  background-image: linear-gradient(rgba(2, 15, 8, 0.3), rgba(2, 15, 8, 0.3)),
-    linear-gradient(180deg, #001826 0%, rgba(0, 37, 49, 0) 100%),
+  background-image: linear-gradient(
+      180deg,
+      rgba(2, 15, 8, 0.4) 0%,
+      rgba(0, 37, 49, 0) 100%
+    ),
+    linear-gradient(180deg, rgba(0, 24, 38, 0.8) 0%, rgba(0, 37, 49, 0) 100%),
     url("/assets/images/hero-background-m.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+@media screen and (max-width: 767px) and (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .hero-section {
+    background-image: linear-gradient(
+        180deg,
+        rgba(2, 15, 8, 0.4) 0%,
+        rgba(0, 37, 49, 0) 100%
+      ),
+      linear-gradient(180deg, rgba(0, 24, 38, 0.8) 0%, rgba(0, 37, 49, 0) 100%),
+      url("/assets/images/hero-background-m@2x.jpg");
+  }
 }
 
 .dropdown-bg {
@@ -97,6 +116,19 @@
   background-size: cover;
 }
 
+@media screen and (max-width: 767px) and (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .about {
+    background-image: linear-gradient(
+        180deg,
+        #001826 0%,
+        rgba(0, 37, 49, 0) 100%
+      ),
+      url("/assets/images/about-bg-m@2x.jpg");
+  }
+}
+
 .career {
   background-color: var(--choose-us-bg-color);
   background-image: linear-gradient(
@@ -110,6 +142,19 @@
   background-size: cover;
 }
 
+@media screen and (max-width: 767px) and (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .career {
+    background-image: linear-gradient(
+        90deg,
+        rgba(2, 15, 8, 0.75) 0%,
+        rgba(2, 15, 8, 0.75) 100%
+      ),
+      url("/assets/images/career-bg-m@2x.jpg");
+  }
+}
+
 .contacts {
   background-color: var(--contacts-bg-color);
   background-image: linear-gradient(
@@ -121,6 +166,19 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+@media screen and (max-width: 767px) and (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .contacts {
+    background-image: linear-gradient(
+        90deg,
+        rgba(2, 15, 8, 0.75) 0%,
+        rgba(2, 15, 8, 0.75) 100%
+      ),
+      url("/assets/images/contacts-bg-image-m@2x.jpg");
+  }
 }
 
 .checkbox {
@@ -163,6 +221,32 @@
 
 .checkbox:checked + .checkbox-container::after {
   transform: scale(1);
+}
+
+.gallery {
+  background-color: var(--gallery-bg-color);
+  background-image: linear-gradient(
+      90deg,
+      rgba(2, 15, 8, 0.75) 0%,
+      rgba(2, 15, 8, 0.75) 100%
+    ),
+    url("/assets/images/gallery-bg-m.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@media screen and (max-width: 767px) and (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .gallery {
+    background-image: linear-gradient(
+        90deg,
+        rgba(2, 15, 8, 0.75) 0%,
+        rgba(2, 15, 8, 0.75) 100%
+      ),
+      url("/assets/images/gallery-bg-m@2x.jpg");
+  }
 }
 
 /* Tailwind Styles */
