@@ -9,12 +9,18 @@ export default function Gallery() {
         </h2>
         <ul>
           <li className="mb-[24px]">
-            <Image
-              src={"/assets/images/mountains-m.jpg"}
-              alt="Carpathian's mountains from a high view"
-              width={280}
-              height={187}
-            />
+            <picture>
+              <source
+                srcSet="/assets/images/mountains-m.jpg 1x, /assets/images/mountains-m@2x.jpg 2x "
+                media="(max-width: 767px)"
+              />
+              <Image
+                src={"/assets/images/mountains-m.jpg"}
+                alt="Carpathian's mountains from a high view"
+                width={280}
+                height={187}
+              />
+            </picture>
           </li>
 
           <li className="mb-[24px]">
